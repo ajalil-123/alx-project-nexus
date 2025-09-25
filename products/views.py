@@ -52,3 +52,25 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [permissions.AllowAny]
+
+
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from django.db.models import Count
+
+class ProductViewSet(viewsets.ModelViewSet):
+    ...
+    
+    @action(detail=False, methods=['get'], url_path='facets')
+    def facets(self, request):
+        """
+        Returns counts of products per category.
+        Useful for frontend filters (facets).
+        Example: GET /api/products/facets/
+        """
+        category_counts = (
+            self.get_queryset()
+            .values("category__name", "category__slug")
+            .annotate(count=Count("id"))
+        )
+        return Response(category_counts)
