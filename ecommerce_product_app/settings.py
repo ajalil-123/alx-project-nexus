@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_filters',
     'users',
     'products',
+    'drf_spectacular',
 
 ]
 
@@ -69,6 +70,15 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 12,
+
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'E-Commerce Backend API',
+    'DESCRIPTION': 'API documentation for ALX ProDev Backend Engineering Project. Includes Users, Products, Categories, Authentication, Filtering, Sorting, Pagination, and Facets.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
 
 ROOT_URLCONF = 'ecommerce_product_app.urls'
