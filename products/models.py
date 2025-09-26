@@ -31,15 +31,15 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    sku = models.CharField(max_length=64, unique=True)            # Stock Keeping Unit
-    name = models.CharField(max_length=255)
+    sku = models.CharField(max_length=64, unique=True, db_index=True)            # Stock Keeping Unit
+    name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=300, unique=True, blank=True)
     description = models.TextField(blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="products")
-    price = models.DecimalField(max_digits=12, decimal_places=2)
+    price = models.DecimalField(max_digits=12, decimal_places=2,db_index=True)
     inventory_count = models.IntegerField(default=0)
     is_active = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:

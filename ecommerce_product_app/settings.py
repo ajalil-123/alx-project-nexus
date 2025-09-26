@@ -63,6 +63,8 @@ STATIC_URL = "/static/"
 
 # Django REST Framework configuration
 REST_FRAMEWORK = {
+    "EXCEPTION_HANDLER": "utils.exceptions.custom_exception_handler",
+
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
@@ -75,6 +77,8 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 12,
 
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
+    
 }
 
 SPECTACULAR_SETTINGS = {
@@ -93,6 +97,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                "django.template.context_processors.debug",
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
