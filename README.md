@@ -2,11 +2,11 @@
 # 🛍️ E-Commerce Product API
 
 A Django REST Framework (DRF) powered backend API for managing **e-commerce products**.  
-This project is part of the **ALX Backend Course Nexus** assignment and demonstrates modern backend best practices such as authentication, filtering, pagination, and more.
+This project is part of the **ALX Backend Course** assignment and demonstrates modern backend best practices such as authentication, filtering, pagination, and more.
 
 ---
 
-## 🚀 Features Implemented So Far
+## 🚀 Features Implemented
 
 ### 1. Project Setup
 - Django 5 + Django REST Framework
@@ -63,141 +63,22 @@ GET /api/products/?ordering=-created_at   # Descending order
   - `?price_min=100&price_max=500`
 - Combine filters:
 
-Example:
-```
-GET /api/products/?category=Electronics&price_min=200&price_max=1000&ordering=-price
-```
-
----
-
-## 📌 Roadmap (Next Features)
-
-- [ ] **JWT Authentication** (Users can register/login and access protected routes)  
-- [ ] **User Ownership** (Products tied to the creator account)  
-- [ ] **Testing** (Unit + Integration tests)  
-- [ ] **Docker Setup** (Optional for deployment readiness)  
-- [ ] **CI/CD integration**  
 
 ---
 
 ## 🛠️ Tech Stack
 - **Backend Framework:** Django 5  
 - **API Toolkit:** Django REST Framework  
-- **Database:** SQLite (dev) → PostgreSQL (production ready)  
+- **Database:** SQLite (dev)  
 - **Auth:** JWT (planned)  
 
 ---
-
-## 📖 Installation & Setup
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/your-username/ecommerce_product_app.git
-   cd ecommerce_product_app
-   ```
-
-2. Create virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # Mac/Linux
-   venv\Scripts\activate      # Windows
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Run migrations:
-   ```bash
-   python manage.py migrate
-   ```
-
-5. Start server:
-   ```bash
-   python manage.py runserver
-   ```
-
-6. Test API:
-   - Open [http://127.0.0.1:8000/api/products/](http://127.0.0.1:8000/api/products/)
-
----
-
-## 📂 Project Structure
-```
-ecommerce_product_app/
-│── products/
-│   ├── models.py       # Product model
-│   ├── serializers.py  # DRF serializers
-│   ├── views.py        # ViewSets with filtering, sorting, pagination
-│   ├── urls.py         # API routes
-│── ecommerce_product_app/
-│   ├── settings.py     # DRF, installed apps, pagination
-│   ├── urls.py         # Project-level routing
-│── manage.py
-```
-
----
-
-## 📌 Example API Requests & Responses
-
-### Create Product (POST)
-**Request**
-```json
-POST /api/products/
-{
-  "name": "iPhone 15",
-  "description": "Latest Apple flagship",
-  "price": 1200,
-  "category": "Electronics"
-}
-```
-
-**Response**
-```json
-{
-  "id": 1,
-  "name": "iPhone 15",
-  "description": "Latest Apple flagship",
-  "price": 1200,
-  "category": "Electronics",
-  "created_at": "2025-09-25T12:00:00Z",
-  "updated_at": "2025-09-25T12:00:00Z"
-}
-```
-
-### Get Products with Filters
-**Request**
-```
-GET /api/products/?category=Electronics&price_min=500&ordering=-price&limit=3
-```
-
-**Response**
-```json
-[
-  {
-    "id": 5,
-    "name": "Samsung Galaxy S25",
-    "price": 1100,
-    "category": "Electronics"
-  },
-  {
-    "id": 3,
-    "name": "iPhone 15",
-    "price": 1000,
-    "category": "Electronics"
-  },
-  {
-    "id": 2,
-    "name": "Sony Headphones",
-    "price": 600,
-    "category": "Electronics"
-  }
-]
-```
+## API Documentation hosted link
+- https://ecommerce-app-r82i.onrender.com/api/docs/
 
 ---
 
 ## 👤 Author
 **Abdul Jalil Zakaria**  
-🔗 ALX Backend Course Nexus Participant  
+🔗 Backend Engineer 
+
